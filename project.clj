@@ -6,7 +6,10 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [ring "1.7.1"]
                  [ring/ring-jetty-adapter "1.7.0"]
-                 [compojure "1.6.1"]]
+                 [compojure "1.6.1"]
+                 [clj-time "0.15.2"]
+                 [org.clojure/core.async "0.4.500"]
+                 [org.clojure/tools.logging "0.5.0"]]
   :main ^:skip-aot lganguly.compojure
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
