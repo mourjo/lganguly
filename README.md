@@ -4,6 +4,20 @@ A scratch repository for testing things out. A tribute to the great [Lalmohan Ga
 
 ![](lalmohanganguly.png)
 
+
+## Some of the stuff experimeted with here
+
+### Hello Server
+
+```
+lein run -m lganguly.helloserver/-main
+```
+When the username and password are same, consider it to be valid
+credentials! ¯\_(ツ)_/¯
+
+![](helloserver.gif)
+
+
 ## License
 
 Copyright © 2019 Mourjo Sen
