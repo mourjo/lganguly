@@ -18,6 +18,30 @@
 (use-fixtures :once once-fixture)
 
 
+(deftest wrap-session-timeout-test
+  (let [counter (atom 0)
+        composed-handler (sut/wrap-session-timeout
+                          (fn [& _]
+                            (swap! counter inc)
+                            {:body "Hello!"}))]
+
+    (is (= {:body "Hello!"}
+           (composed-handler {:session {:created-at (ctc/now)}}))
+        "The middleware lets valid sessions that have not timed out pass through")
+
+    (is (= 1 @counter)
+        "The middleware lets the request pass through to the handler when session is active")
+
+    (reset! counter 0)
+
+    (is (= {:status 302 :headers {"Location" "/login"} :body "" :session nil}
+           (composed-handler {:session {:created-at (ctc/epoch)}}))
+        "The middleware forcefully logs the user out when the session has timedout")
+
+    (is (zero? @counter)
+        "The middleware does not pass the request to the handler when the session has timed out")))
+
+
 (deftest invalid-login-test
   (let [response (chc/get "http://localhost:4004")]
     (is (= ["http://localhost:4004/hello"
