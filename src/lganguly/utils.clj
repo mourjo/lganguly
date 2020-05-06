@@ -1,4 +1,4 @@
-(ns bellatrix.utils
+(ns lganguly.utils
   (:require [clj-time.core :as ctc]
             [clj-time.format :as ctf]))
 

@@ -13,6 +13,6 @@
                  [clj-http "3.10.0"]
                  [org.clojure/core.async "0.4.500"]
                  [org.clojure/tools.logging "0.5.0"]]
-  :main ^:skip-aot lganguly.helloserver
+  :main lganguly.helloserver
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

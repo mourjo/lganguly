@@ -1,4 +1,5 @@
 (ns lganguly.helloserver
+  (:gen-class)
   (:require [clj-time.core :as ctc]
             [clojure.stacktrace :as cst]
             [compojure.core :refer :all]
